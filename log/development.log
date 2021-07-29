@@ -1,0 +1,1757 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateDogsitters (20210729175940)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "dogsitters" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "city_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20210729175940_create_dogsitters.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_dogsitters_on_city_id" ON "dogsitters" ("city_id")[0m
+  ↳ db/migrate/20210729175940_create_dogsitters.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210729175940"]]
+  ↳ bin/rails:9
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateDoggies (20210729175954)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "doggies" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "city_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20210729175954_create_doggies.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_doggies_on_city_id" ON "doggies" ("city_id")[0m
+  ↳ db/migrate/20210729175954_create_doggies.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210729175954"]]
+  ↳ bin/rails:9
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateCities (20210729180014)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "cities" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "zip_code" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20210729180014_create_cities.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210729180014"]]
+  ↳ bin/rails:9
+  [1m[35m (10.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateStrolls (20210729180024)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "strolls" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "dogsitter_id" integer, "doggy_id" integer, "city_id" integer, "date" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20210729180024_create_strolls.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_strolls_on_dogsitter_id" ON "strolls" ("dogsitter_id")[0m
+  ↳ db/migrate/20210729180024_create_strolls.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_strolls_on_doggy_id" ON "strolls" ("doggy_id")[0m
+  ↳ db/migrate/20210729180024_create_strolls.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_strolls_on_city_id" ON "strolls" ("city_id")[0m
+  ↳ db/migrate/20210729180024_create_strolls.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210729180024"]]
+  ↳ bin/rails:9
+  [1m[35m (18.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-07-29 18:07:19.327177"], ["updated_at", "2021-07-29 18:07:19.327177"]]
+  ↳ bin/rails:9
+  [1m[35m (8.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mDoggy Load (0.2ms)[0m  [1m[34mSELECT "doggies".* FROM "doggies"[0m
+  ↳ db/seeds.rb:12
+  [1m[36mDogsitter Load (0.2ms)[0m  [1m[34mSELECT "dogsitters".* FROM "dogsitters"[0m
+  ↳ db/seeds.rb:14
+  [1m[36mStroll Load (0.1ms)[0m  [1m[34mSELECT "strolls".* FROM "strolls"[0m
+  ↳ db/seeds.rb:16
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mDoggy Load (0.3ms)[0m  [1m[34mSELECT "doggies".* FROM "doggies"[0m
+  ↳ db/seeds.rb:12
+  [1m[36mDogsitter Load (0.2ms)[0m  [1m[34mSELECT "dogsitters".* FROM "dogsitters"[0m
+  ↳ db/seeds.rb:14
+  [1m[36mStroll Load (0.1ms)[0m  [1m[34mSELECT "strolls".* FROM "strolls"[0m
+  ↳ db/seeds.rb:16
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.4ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Sashaton"], ["zip_code", "75522"], ["created_at", "2021-07-29 18:21:33.653400"], ["updated_at", "2021-07-29 18:21:33.653400"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Daisey"], ["last_name", "Jenkins"], ["city_id", 1], ["created_at", "2021-07-29 18:21:33.668149"], ["updated_at", "2021-07-29 18:21:33.668149"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Gino"], ["city_id", 1], ["created_at", "2021-07-29 18:21:33.673850"], ["updated_at", "2021-07-29 18:21:33.673850"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mDogsitter Load (0.1ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mDogsitter Load (0.1ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mDogsitter Load (0.1ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" WHERE "dogsitters"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mDoggy Load (0.1ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mDoggy Load (0.1ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mDoggy Load (0.1ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" WHERE "doggies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mDoggy Load (0.2ms)[0m  [1m[34mSELECT "doggies".* FROM "doggies"[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mDoggy Destroy (0.3ms)[0m  [1m[31mDELETE FROM "doggies" WHERE "doggies"."id" = ?[0m  [["id", 1]]
+  ↳ db/seeds.rb:12
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mDogsitter Load (0.2ms)[0m  [1m[34mSELECT "dogsitters".* FROM "dogsitters"[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[36mDogsitter Destroy (0.2ms)[0m  [1m[31mDELETE FROM "dogsitters" WHERE "dogsitters"."id" = ?[0m  [["id", 1]]
+  ↳ db/seeds.rb:14
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[36mStroll Load (0.1ms)[0m  [1m[34mSELECT "strolls".* FROM "strolls"[0m
+  ↳ db/seeds.rb:16
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mCity Destroy (0.1ms)[0m  [1m[31mDELETE FROM "cities" WHERE "cities"."id" = ?[0m  [["id", 1]]
+  ↳ db/seeds.rb:18
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.2ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Nellmouth"], ["zip_code", "31221"], ["created_at", "2021-07-29 18:23:55.998680"], ["updated_at", "2021-07-29 18:23:55.998680"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Jesus"], ["last_name", "Simonis"], ["city_id", 2], ["created_at", "2021-07-29 18:23:56.008406"], ["updated_at", "2021-07-29 18:23:56.008406"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.1ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Sima"], ["city_id", 2], ["created_at", "2021-07-29 18:23:56.012182"], ["updated_at", "2021-07-29 18:23:56.012182"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mDogsitter Load (0.1ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mDogsitter Load (0.1ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mDogsitter Load (0.1ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" WHERE "dogsitters"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mDoggy Load (0.1ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mDoggy Load (0.1ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mDoggy Load (0.1ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" WHERE "doggies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.2ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Jonathanport"], ["zip_code", "22544-8822"], ["created_at", "2021-07-29 18:23:56.018226"], ["updated_at", "2021-07-29 18:23:56.018226"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Aretha"], ["last_name", "Haag"], ["city_id", 3], ["created_at", "2021-07-29 18:23:56.021928"], ["updated_at", "2021-07-29 18:23:56.021928"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Daron"], ["city_id", 3], ["created_at", "2021-07-29 18:23:56.025430"], ["updated_at", "2021-07-29 18:23:56.025430"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mCity Load (0.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mCity Load (0.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mDogsitter Load (0.0ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mDogsitter Load (0.0ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mDogsitter Load (0.0ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" WHERE "dogsitters"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mDoggy Load (0.0ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mDoggy Load (0.0ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mDoggy Load (0.0ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" WHERE "doggies"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.2ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Kerrytown"], ["zip_code", "97119-0268"], ["created_at", "2021-07-29 18:23:56.031058"], ["updated_at", "2021-07-29 18:23:56.031058"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.3ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Margo"], ["last_name", "Rice"], ["city_id", 4], ["created_at", "2021-07-29 18:23:56.034760"], ["updated_at", "2021-07-29 18:23:56.034760"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Neda"], ["city_id", 4], ["created_at", "2021-07-29 18:23:56.038302"], ["updated_at", "2021-07-29 18:23:56.038302"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mCity Load (0.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mCity Load (0.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mDogsitter Load (0.0ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mDogsitter Load (0.0ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mDogsitter Load (0.0ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" WHERE "dogsitters"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mDoggy Load (0.0ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mDoggy Load (0.0ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mDoggy Load (0.0ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" WHERE "doggies"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.2ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Leeburgh"], ["zip_code", "23059"], ["created_at", "2021-07-29 18:23:56.043322"], ["updated_at", "2021-07-29 18:23:56.043322"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Vanita"], ["last_name", "Dare"], ["city_id", 5], ["created_at", "2021-07-29 18:23:56.047169"], ["updated_at", "2021-07-29 18:23:56.047169"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Deanne"], ["city_id", 5], ["created_at", "2021-07-29 18:23:56.050493"], ["updated_at", "2021-07-29 18:23:56.050493"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mCity Load (0.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mCity Load (0.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mCity Load (0.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mDogsitter Load (0.0ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mDogsitter Load (0.0ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mDogsitter Load (0.0ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" WHERE "dogsitters"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mDoggy Load (0.0ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mDoggy Load (0.0ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mDoggy Load (0.0ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" WHERE "doggies"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.2ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Olenfurt"], ["zip_code", "57917-3326"], ["created_at", "2021-07-29 18:23:56.054945"], ["updated_at", "2021-07-29 18:23:56.054945"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Benito"], ["last_name", "Jaskolski"], ["city_id", 6], ["created_at", "2021-07-29 18:23:56.057355"], ["updated_at", "2021-07-29 18:23:56.057355"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Lani"], ["city_id", 6], ["created_at", "2021-07-29 18:23:56.061449"], ["updated_at", "2021-07-29 18:23:56.061449"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mCity Load (0.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mCity Load (0.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mCity Load (0.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mDogsitter Load (0.0ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mDogsitter Load (0.0ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mDogsitter Load (0.0ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" WHERE "dogsitters"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mDoggy Load (0.0ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mDoggy Load (0.0ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mDoggy Load (0.0ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" WHERE "doggies"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.2ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "North Earleanfurt"], ["zip_code", "12526"], ["created_at", "2021-07-29 18:23:56.066679"], ["updated_at", "2021-07-29 18:23:56.066679"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Melany"], ["last_name", "Weissnat"], ["city_id", 7], ["created_at", "2021-07-29 18:23:56.069292"], ["updated_at", "2021-07-29 18:23:56.069292"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.1ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Marcos"], ["city_id", 7], ["created_at", "2021-07-29 18:23:56.072189"], ["updated_at", "2021-07-29 18:23:56.072189"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mCity Load (0.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mCity Load (0.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mDogsitter Load (0.0ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mDogsitter Load (0.0ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mDogsitter Load (0.0ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" WHERE "dogsitters"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mDoggy Load (0.0ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mDoggy Load (0.0ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mDoggy Load (0.0ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" WHERE "doggies"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.2ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Millermouth"], ["zip_code", "27043"], ["created_at", "2021-07-29 18:23:56.078822"], ["updated_at", "2021-07-29 18:23:56.078822"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Jordon"], ["last_name", "Roob"], ["city_id", 8], ["created_at", "2021-07-29 18:23:56.082267"], ["updated_at", "2021-07-29 18:23:56.082267"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Leone"], ["city_id", 8], ["created_at", "2021-07-29 18:23:56.084945"], ["updated_at", "2021-07-29 18:23:56.084945"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mCity Load (0.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mCity Load (0.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mDogsitter Load (0.0ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mDogsitter Load (0.0ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mDogsitter Load (0.0ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" WHERE "dogsitters"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mDoggy Load (0.0ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mDoggy Load (0.0ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mDoggy Load (0.0ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" WHERE "doggies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.2ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Mariomouth"], ["zip_code", "85198"], ["created_at", "2021-07-29 18:23:56.089801"], ["updated_at", "2021-07-29 18:23:56.089801"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.4ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Mardell"], ["last_name", "Berge"], ["city_id", 9], ["created_at", "2021-07-29 18:23:56.093310"], ["updated_at", "2021-07-29 18:23:56.093310"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Franchesca"], ["city_id", 9], ["created_at", "2021-07-29 18:23:56.096793"], ["updated_at", "2021-07-29 18:23:56.096793"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mCity Load (0.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mCity Load (0.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mCity Load (0.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mDogsitter Load (0.0ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mDogsitter Load (0.0ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mDogsitter Load (0.0ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" WHERE "dogsitters"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mDoggy Load (0.0ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mDoggy Load (0.0ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mDoggy Load (0.0ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" WHERE "doggies"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.1ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "West Scot"], ["zip_code", "25117"], ["created_at", "2021-07-29 18:23:56.100952"], ["updated_at", "2021-07-29 18:23:56.100952"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.1ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Elmo"], ["last_name", "Schultz"], ["city_id", 10], ["created_at", "2021-07-29 18:23:56.103404"], ["updated_at", "2021-07-29 18:23:56.103404"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Nelson"], ["city_id", 10], ["created_at", "2021-07-29 18:23:56.106271"], ["updated_at", "2021-07-29 18:23:56.106271"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (3.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mCity Load (0.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mCity Load (0.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mDogsitter Load (0.0ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mDogsitter Load (0.0ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mDogsitter Load (0.0ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" WHERE "dogsitters"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mDoggy Load (0.0ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mDoggy Load (0.0ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mDoggy Load (0.0ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" WHERE "doggies"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.2ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "East Jone"], ["zip_code", "79680"], ["created_at", "2021-07-29 18:23:56.112977"], ["updated_at", "2021-07-29 18:23:56.112977"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Josiah"], ["last_name", "Kohler"], ["city_id", 11], ["created_at", "2021-07-29 18:23:56.116010"], ["updated_at", "2021-07-29 18:23:56.116010"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Bell"], ["city_id", 11], ["created_at", "2021-07-29 18:23:56.119119"], ["updated_at", "2021-07-29 18:23:56.119119"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mCity Load (0.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mCity Load (0.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mDogsitter Load (0.0ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mDogsitter Load (0.0ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mDogsitter Load (0.0ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" WHERE "dogsitters"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mDoggy Load (0.0ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mDoggy Load (0.0ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mDoggy Load (0.0ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" WHERE "doggies"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mDoggy Load (0.1ms)[0m  [1m[34mSELECT "doggies".* FROM "doggies"[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mDoggy Destroy (0.3ms)[0m  [1m[31mDELETE FROM "doggies" WHERE "doggies"."id" = ?[0m  [["id", 2]]
+  ↳ db/seeds.rb:12
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mDoggy Destroy (0.1ms)[0m  [1m[31mDELETE FROM "doggies" WHERE "doggies"."id" = ?[0m  [["id", 3]]
+  ↳ db/seeds.rb:12
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mDoggy Destroy (0.1ms)[0m  [1m[31mDELETE FROM "doggies" WHERE "doggies"."id" = ?[0m  [["id", 4]]
+  ↳ db/seeds.rb:12
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mDoggy Destroy (0.1ms)[0m  [1m[31mDELETE FROM "doggies" WHERE "doggies"."id" = ?[0m  [["id", 5]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mDoggy Destroy (0.1ms)[0m  [1m[31mDELETE FROM "doggies" WHERE "doggies"."id" = ?[0m  [["id", 6]]
+  ↳ db/seeds.rb:12
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mDoggy Destroy (0.1ms)[0m  [1m[31mDELETE FROM "doggies" WHERE "doggies"."id" = ?[0m  [["id", 7]]
+  ↳ db/seeds.rb:12
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mDoggy Destroy (0.1ms)[0m  [1m[31mDELETE FROM "doggies" WHERE "doggies"."id" = ?[0m  [["id", 8]]
+  ↳ db/seeds.rb:12
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mDoggy Destroy (0.2ms)[0m  [1m[31mDELETE FROM "doggies" WHERE "doggies"."id" = ?[0m  [["id", 9]]
+  ↳ db/seeds.rb:12
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mDoggy Destroy (0.1ms)[0m  [1m[31mDELETE FROM "doggies" WHERE "doggies"."id" = ?[0m  [["id", 10]]
+  ↳ db/seeds.rb:12
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mDoggy Destroy (0.1ms)[0m  [1m[31mDELETE FROM "doggies" WHERE "doggies"."id" = ?[0m  [["id", 11]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mDogsitter Load (0.1ms)[0m  [1m[34mSELECT "dogsitters".* FROM "dogsitters"[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[36mDogsitter Destroy (0.1ms)[0m  [1m[31mDELETE FROM "dogsitters" WHERE "dogsitters"."id" = ?[0m  [["id", 2]]
+  ↳ db/seeds.rb:14
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[36mDogsitter Destroy (0.1ms)[0m  [1m[31mDELETE FROM "dogsitters" WHERE "dogsitters"."id" = ?[0m  [["id", 3]]
+  ↳ db/seeds.rb:14
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[36mDogsitter Destroy (0.1ms)[0m  [1m[31mDELETE FROM "dogsitters" WHERE "dogsitters"."id" = ?[0m  [["id", 4]]
+  ↳ db/seeds.rb:14
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[36mDogsitter Destroy (0.1ms)[0m  [1m[31mDELETE FROM "dogsitters" WHERE "dogsitters"."id" = ?[0m  [["id", 5]]
+  ↳ db/seeds.rb:14
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[36mDogsitter Destroy (0.1ms)[0m  [1m[31mDELETE FROM "dogsitters" WHERE "dogsitters"."id" = ?[0m  [["id", 6]]
+  ↳ db/seeds.rb:14
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[36mDogsitter Destroy (0.1ms)[0m  [1m[31mDELETE FROM "dogsitters" WHERE "dogsitters"."id" = ?[0m  [["id", 7]]
+  ↳ db/seeds.rb:14
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[36mDogsitter Destroy (0.1ms)[0m  [1m[31mDELETE FROM "dogsitters" WHERE "dogsitters"."id" = ?[0m  [["id", 8]]
+  ↳ db/seeds.rb:14
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[36mDogsitter Destroy (0.1ms)[0m  [1m[31mDELETE FROM "dogsitters" WHERE "dogsitters"."id" = ?[0m  [["id", 9]]
+  ↳ db/seeds.rb:14
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[36mDogsitter Destroy (0.1ms)[0m  [1m[31mDELETE FROM "dogsitters" WHERE "dogsitters"."id" = ?[0m  [["id", 10]]
+  ↳ db/seeds.rb:14
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[36mDogsitter Destroy (0.1ms)[0m  [1m[31mDELETE FROM "dogsitters" WHERE "dogsitters"."id" = ?[0m  [["id", 11]]
+  ↳ db/seeds.rb:14
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[36mStroll Load (0.1ms)[0m  [1m[34mSELECT "strolls".* FROM "strolls"[0m
+  ↳ db/seeds.rb:16
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mCity Destroy (0.1ms)[0m  [1m[31mDELETE FROM "cities" WHERE "cities"."id" = ?[0m  [["id", 2]]
+  ↳ db/seeds.rb:18
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mCity Destroy (0.1ms)[0m  [1m[31mDELETE FROM "cities" WHERE "cities"."id" = ?[0m  [["id", 3]]
+  ↳ db/seeds.rb:18
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mCity Destroy (0.1ms)[0m  [1m[31mDELETE FROM "cities" WHERE "cities"."id" = ?[0m  [["id", 4]]
+  ↳ db/seeds.rb:18
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mCity Destroy (0.1ms)[0m  [1m[31mDELETE FROM "cities" WHERE "cities"."id" = ?[0m  [["id", 5]]
+  ↳ db/seeds.rb:18
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mCity Destroy (0.1ms)[0m  [1m[31mDELETE FROM "cities" WHERE "cities"."id" = ?[0m  [["id", 6]]
+  ↳ db/seeds.rb:18
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mCity Destroy (0.1ms)[0m  [1m[31mDELETE FROM "cities" WHERE "cities"."id" = ?[0m  [["id", 7]]
+  ↳ db/seeds.rb:18
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mCity Destroy (0.1ms)[0m  [1m[31mDELETE FROM "cities" WHERE "cities"."id" = ?[0m  [["id", 8]]
+  ↳ db/seeds.rb:18
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mCity Destroy (0.1ms)[0m  [1m[31mDELETE FROM "cities" WHERE "cities"."id" = ?[0m  [["id", 9]]
+  ↳ db/seeds.rb:18
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mCity Destroy (0.1ms)[0m  [1m[31mDELETE FROM "cities" WHERE "cities"."id" = ?[0m  [["id", 10]]
+  ↳ db/seeds.rb:18
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mCity Destroy (0.1ms)[0m  [1m[31mDELETE FROM "cities" WHERE "cities"."id" = ?[0m  [["id", 11]]
+  ↳ db/seeds.rb:18
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.2ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Baumbachhaven"], ["zip_code", "12584-1117"], ["created_at", "2021-07-29 18:24:10.850086"], ["updated_at", "2021-07-29 18:24:10.850086"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Jon"], ["last_name", "Morar"], ["city_id", 12], ["created_at", "2021-07-29 18:24:10.857173"], ["updated_at", "2021-07-29 18:24:10.857173"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.1ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Nichelle"], ["city_id", 12], ["created_at", "2021-07-29 18:24:10.860119"], ["updated_at", "2021-07-29 18:24:10.860119"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mDogsitter Load (0.1ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mDogsitter Load (0.1ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mDogsitter Load (0.1ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" WHERE "dogsitters"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mDoggy Load (0.1ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mDoggy Load (0.1ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mDoggy Load (0.1ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" WHERE "doggies"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mDoggy Load (0.2ms)[0m  [1m[34mSELECT "doggies".* FROM "doggies"[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mDoggy Destroy (0.5ms)[0m  [1m[31mDELETE FROM "doggies" WHERE "doggies"."id" = ?[0m  [["id", 12]]
+  ↳ db/seeds.rb:12
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mDogsitter Load (0.2ms)[0m  [1m[34mSELECT "dogsitters".* FROM "dogsitters"[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[36mDogsitter Destroy (0.2ms)[0m  [1m[31mDELETE FROM "dogsitters" WHERE "dogsitters"."id" = ?[0m  [["id", 12]]
+  ↳ db/seeds.rb:14
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[36mStroll Load (0.1ms)[0m  [1m[34mSELECT "strolls".* FROM "strolls"[0m
+  ↳ db/seeds.rb:16
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mCity Destroy (0.2ms)[0m  [1m[31mDELETE FROM "cities" WHERE "cities"."id" = ?[0m  [["id", 12]]
+  ↳ db/seeds.rb:18
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.3ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Lake Consuela"], ["zip_code", "56303"], ["created_at", "2021-07-29 18:28:40.995122"], ["updated_at", "2021-07-29 18:28:40.995122"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Karl"], ["last_name", "Ledner"], ["city_id", 13], ["created_at", "2021-07-29 18:28:41.006489"], ["updated_at", "2021-07-29 18:28:41.006489"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Hipolito"], ["city_id", 13], ["created_at", "2021-07-29 18:28:41.010464"], ["updated_at", "2021-07-29 18:28:41.010464"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.2ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Rolandport"], ["zip_code", "67737"], ["created_at", "2021-07-29 18:28:41.014751"], ["updated_at", "2021-07-29 18:28:41.014751"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Alana"], ["last_name", "Leannon"], ["city_id", 14], ["created_at", "2021-07-29 18:28:41.017948"], ["updated_at", "2021-07-29 18:28:41.017948"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Cedric"], ["city_id", 14], ["created_at", "2021-07-29 18:28:41.020671"], ["updated_at", "2021-07-29 18:28:41.020671"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.2ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "South Guy"], ["zip_code", "24549"], ["created_at", "2021-07-29 18:28:41.023303"], ["updated_at", "2021-07-29 18:28:41.023303"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Sabine"], ["last_name", "Quitzon"], ["city_id", 15], ["created_at", "2021-07-29 18:28:41.026112"], ["updated_at", "2021-07-29 18:28:41.026112"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.3ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Roosevelt"], ["city_id", 15], ["created_at", "2021-07-29 18:28:41.028916"], ["updated_at", "2021-07-29 18:28:41.028916"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.2ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Port Shawnton"], ["zip_code", "34839-6370"], ["created_at", "2021-07-29 18:28:41.032759"], ["updated_at", "2021-07-29 18:28:41.032759"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Kristine"], ["last_name", "Deckow"], ["city_id", 16], ["created_at", "2021-07-29 18:28:41.036316"], ["updated_at", "2021-07-29 18:28:41.036316"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Cyril"], ["city_id", 16], ["created_at", "2021-07-29 18:28:41.039495"], ["updated_at", "2021-07-29 18:28:41.039495"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.2ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "South Hermelindaton"], ["zip_code", "01110"], ["created_at", "2021-07-29 18:28:41.042729"], ["updated_at", "2021-07-29 18:28:41.042729"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Cordell"], ["last_name", "Kiehn"], ["city_id", 17], ["created_at", "2021-07-29 18:28:41.045698"], ["updated_at", "2021-07-29 18:28:41.045698"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Delia"], ["city_id", 17], ["created_at", "2021-07-29 18:28:41.048512"], ["updated_at", "2021-07-29 18:28:41.048512"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.2ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Kemmerville"], ["zip_code", "48212"], ["created_at", "2021-07-29 18:28:41.051688"], ["updated_at", "2021-07-29 18:28:41.051688"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.3ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Shelton"], ["last_name", "Bahringer"], ["city_id", 18], ["created_at", "2021-07-29 18:28:41.055244"], ["updated_at", "2021-07-29 18:28:41.055244"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Ashli"], ["city_id", 18], ["created_at", "2021-07-29 18:28:41.058697"], ["updated_at", "2021-07-29 18:28:41.058697"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.2ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Hintzville"], ["zip_code", "39942-3686"], ["created_at", "2021-07-29 18:28:41.062331"], ["updated_at", "2021-07-29 18:28:41.062331"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Joslyn"], ["last_name", "Gutkowski"], ["city_id", 19], ["created_at", "2021-07-29 18:28:41.065493"], ["updated_at", "2021-07-29 18:28:41.065493"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Mel"], ["city_id", 19], ["created_at", "2021-07-29 18:28:41.068262"], ["updated_at", "2021-07-29 18:28:41.068262"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.3ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "North Donnieview"], ["zip_code", "77743-5012"], ["created_at", "2021-07-29 18:28:41.072222"], ["updated_at", "2021-07-29 18:28:41.072222"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (4.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.3ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Yuri"], ["last_name", "Ratke"], ["city_id", 20], ["created_at", "2021-07-29 18:28:41.078204"], ["updated_at", "2021-07-29 18:28:41.078204"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Phil"], ["city_id", 20], ["created_at", "2021-07-29 18:28:41.082169"], ["updated_at", "2021-07-29 18:28:41.082169"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.1ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Port Lavina"], ["zip_code", "90363"], ["created_at", "2021-07-29 18:28:41.085464"], ["updated_at", "2021-07-29 18:28:41.085464"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.1ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Roberta"], ["last_name", "Mueller"], ["city_id", 21], ["created_at", "2021-07-29 18:28:41.089474"], ["updated_at", "2021-07-29 18:28:41.089474"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.1ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Cleveland"], ["city_id", 21], ["created_at", "2021-07-29 18:28:41.092091"], ["updated_at", "2021-07-29 18:28:41.092091"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.2ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "West Dyan"], ["zip_code", "76049-8229"], ["created_at", "2021-07-29 18:28:41.094797"], ["updated_at", "2021-07-29 18:28:41.094797"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Ronnie"], ["last_name", "Kreiger"], ["city_id", 22], ["created_at", "2021-07-29 18:28:41.098603"], ["updated_at", "2021-07-29 18:28:41.098603"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.1ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Brianne"], ["city_id", 22], ["created_at", "2021-07-29 18:28:41.101365"], ["updated_at", "2021-07-29 18:28:41.101365"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mDogsitter Load (0.1ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:33
+  [1m[36mDogsitter Load (0.1ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:33
+  [1m[36mDogsitter Load (0.1ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" WHERE "dogsitters"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ db/seeds.rb:33
+  [1m[36mDoggy Load (0.1ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:35
+  [1m[36mDoggy Load (0.1ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:35
+  [1m[36mDoggy Load (0.1ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" WHERE "doggies"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ db/seeds.rb:35
+  [1m[36mDoggy Load (2.4ms)[0m  [1m[34mSELECT "doggies".* FROM "doggies"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.5ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Carolahaven"], ["zip_code", "65737"], ["created_at", "2021-07-29 18:29:45.335010"], ["updated_at", "2021-07-29 18:29:45.335010"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Allan"], ["last_name", "Kuhn"], ["city_id", 23], ["created_at", "2021-07-29 18:29:45.351018"], ["updated_at", "2021-07-29 18:29:45.351018"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Verlene"], ["city_id", 23], ["created_at", "2021-07-29 18:29:45.357905"], ["updated_at", "2021-07-29 18:29:45.357905"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.1ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Lubowitzstad"], ["zip_code", "66138-9820"], ["created_at", "2021-07-29 18:29:45.360395"], ["updated_at", "2021-07-29 18:29:45.360395"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Lakeshia"], ["last_name", "Jacobs"], ["city_id", 24], ["created_at", "2021-07-29 18:29:45.362631"], ["updated_at", "2021-07-29 18:29:45.362631"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Dale"], ["city_id", 24], ["created_at", "2021-07-29 18:29:45.365106"], ["updated_at", "2021-07-29 18:29:45.365106"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.2ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "North Vicki"], ["zip_code", "00796-8091"], ["created_at", "2021-07-29 18:29:45.367626"], ["updated_at", "2021-07-29 18:29:45.367626"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Winston"], ["last_name", "Schulist"], ["city_id", 25], ["created_at", "2021-07-29 18:29:45.370119"], ["updated_at", "2021-07-29 18:29:45.370119"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.1ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Chelsie"], ["city_id", 25], ["created_at", "2021-07-29 18:29:45.372417"], ["updated_at", "2021-07-29 18:29:45.372417"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.2ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Roobborough"], ["zip_code", "66676-8789"], ["created_at", "2021-07-29 18:29:45.374842"], ["updated_at", "2021-07-29 18:29:45.374842"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.1ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Fred"], ["last_name", "Lehner"], ["city_id", 26], ["created_at", "2021-07-29 18:29:45.377199"], ["updated_at", "2021-07-29 18:29:45.377199"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.3ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Margene"], ["city_id", 26], ["created_at", "2021-07-29 18:29:45.380167"], ["updated_at", "2021-07-29 18:29:45.380167"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.1ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Towneport"], ["zip_code", "27162-2788"], ["created_at", "2021-07-29 18:29:45.383990"], ["updated_at", "2021-07-29 18:29:45.383990"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Randal"], ["last_name", "Keebler"], ["city_id", 27], ["created_at", "2021-07-29 18:29:45.386912"], ["updated_at", "2021-07-29 18:29:45.386912"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Tierra"], ["city_id", 27], ["created_at", "2021-07-29 18:29:45.391206"], ["updated_at", "2021-07-29 18:29:45.391206"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.1ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "East Adeline"], ["zip_code", "26667-4109"], ["created_at", "2021-07-29 18:29:45.394371"], ["updated_at", "2021-07-29 18:29:45.394371"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.3ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Ali"], ["last_name", "Doyle"], ["city_id", 28], ["created_at", "2021-07-29 18:29:45.397967"], ["updated_at", "2021-07-29 18:29:45.397967"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.1ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Kent"], ["city_id", 28], ["created_at", "2021-07-29 18:29:45.401218"], ["updated_at", "2021-07-29 18:29:45.401218"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.1ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Cecilfurt"], ["zip_code", "96690-4516"], ["created_at", "2021-07-29 18:29:45.404014"], ["updated_at", "2021-07-29 18:29:45.404014"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.1ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Hector"], ["last_name", "Wiegand"], ["city_id", 29], ["created_at", "2021-07-29 18:29:45.407116"], ["updated_at", "2021-07-29 18:29:45.407116"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Carlie"], ["city_id", 29], ["created_at", "2021-07-29 18:29:45.409907"], ["updated_at", "2021-07-29 18:29:45.409907"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.2ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Alexville"], ["zip_code", "88054-4444"], ["created_at", "2021-07-29 18:29:45.413776"], ["updated_at", "2021-07-29 18:29:45.413776"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Ami"], ["last_name", "Wisozk"], ["city_id", 30], ["created_at", "2021-07-29 18:29:45.416877"], ["updated_at", "2021-07-29 18:29:45.416877"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.1ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "China"], ["city_id", 30], ["created_at", "2021-07-29 18:29:45.419035"], ["updated_at", "2021-07-29 18:29:45.419035"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.1ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Lake Shane"], ["zip_code", "53544-1762"], ["created_at", "2021-07-29 18:29:45.421662"], ["updated_at", "2021-07-29 18:29:45.421662"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.1ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Devin"], ["last_name", "Kassulke"], ["city_id", 31], ["created_at", "2021-07-29 18:29:45.424217"], ["updated_at", "2021-07-29 18:29:45.424217"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.1ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Trina"], ["city_id", 31], ["created_at", "2021-07-29 18:29:45.426934"], ["updated_at", "2021-07-29 18:29:45.426934"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.2ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "South Oralee"], ["zip_code", "66319"], ["created_at", "2021-07-29 18:29:45.430158"], ["updated_at", "2021-07-29 18:29:45.430158"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Mark"], ["last_name", "West"], ["city_id", 32], ["created_at", "2021-07-29 18:29:45.433044"], ["updated_at", "2021-07-29 18:29:45.433044"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.1ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Joe"], ["city_id", 32], ["created_at", "2021-07-29 18:29:45.435359"], ["updated_at", "2021-07-29 18:29:45.435359"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mDogsitter Load (0.0ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:33
+  [1m[36mDogsitter Load (0.1ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:33
+  [1m[36mDogsitter Load (0.1ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" WHERE "dogsitters"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ db/seeds.rb:33
+  [1m[36mDoggy Load (0.1ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:35
+  [1m[36mDoggy Load (0.1ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:35
+  [1m[36mDoggy Load (0.1ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" WHERE "doggies"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ db/seeds.rb:35
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.5ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "West Jani"], ["zip_code", "81625"], ["created_at", "2021-07-29 18:30:53.030575"], ["updated_at", "2021-07-29 18:30:53.030575"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Darline"], ["last_name", "Schamberger"], ["city_id", 33], ["created_at", "2021-07-29 18:30:53.049444"], ["updated_at", "2021-07-29 18:30:53.049444"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Tad"], ["city_id", 33], ["created_at", "2021-07-29 18:30:53.057952"], ["updated_at", "2021-07-29 18:30:53.057952"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.1ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Kreigerberg"], ["zip_code", "57335"], ["created_at", "2021-07-29 18:30:53.061426"], ["updated_at", "2021-07-29 18:30:53.061426"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Tiffani"], ["last_name", "Armstrong"], ["city_id", 34], ["created_at", "2021-07-29 18:30:53.064303"], ["updated_at", "2021-07-29 18:30:53.064303"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Franklin"], ["city_id", 34], ["created_at", "2021-07-29 18:30:53.067580"], ["updated_at", "2021-07-29 18:30:53.067580"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.1ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Marciaview"], ["zip_code", "72660-2975"], ["created_at", "2021-07-29 18:30:53.070514"], ["updated_at", "2021-07-29 18:30:53.070514"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.1ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Antonio"], ["last_name", "Mueller"], ["city_id", 35], ["created_at", "2021-07-29 18:30:53.072659"], ["updated_at", "2021-07-29 18:30:53.072659"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.1ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Emory"], ["city_id", 35], ["created_at", "2021-07-29 18:30:53.074963"], ["updated_at", "2021-07-29 18:30:53.074963"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.1ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Davishaven"], ["zip_code", "44047"], ["created_at", "2021-07-29 18:30:53.077639"], ["updated_at", "2021-07-29 18:30:53.077639"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Wendie"], ["last_name", "Larson"], ["city_id", 36], ["created_at", "2021-07-29 18:30:53.080793"], ["updated_at", "2021-07-29 18:30:53.080793"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Odis"], ["city_id", 36], ["created_at", "2021-07-29 18:30:53.083892"], ["updated_at", "2021-07-29 18:30:53.083892"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.1ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Gleasonborough"], ["zip_code", "01749"], ["created_at", "2021-07-29 18:30:53.086809"], ["updated_at", "2021-07-29 18:30:53.086809"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Cedrick"], ["last_name", "Hauck"], ["city_id", 37], ["created_at", "2021-07-29 18:30:53.090299"], ["updated_at", "2021-07-29 18:30:53.090299"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Carmon"], ["city_id", 37], ["created_at", "2021-07-29 18:30:53.093651"], ["updated_at", "2021-07-29 18:30:53.093651"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.2ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Nitzscheville"], ["zip_code", "99585"], ["created_at", "2021-07-29 18:30:53.097769"], ["updated_at", "2021-07-29 18:30:53.097769"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Morris"], ["last_name", "Schneider"], ["city_id", 38], ["created_at", "2021-07-29 18:30:53.101374"], ["updated_at", "2021-07-29 18:30:53.101374"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Romeo"], ["city_id", 38], ["created_at", "2021-07-29 18:30:53.104954"], ["updated_at", "2021-07-29 18:30:53.104954"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.1ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Port Geritown"], ["zip_code", "99540"], ["created_at", "2021-07-29 18:30:53.108759"], ["updated_at", "2021-07-29 18:30:53.108759"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.1ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Ute"], ["last_name", "Murphy"], ["city_id", 39], ["created_at", "2021-07-29 18:30:53.111465"], ["updated_at", "2021-07-29 18:30:53.111465"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Dalene"], ["city_id", 39], ["created_at", "2021-07-29 18:30:53.115582"], ["updated_at", "2021-07-29 18:30:53.115582"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.2ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "North Cristobalborough"], ["zip_code", "13187"], ["created_at", "2021-07-29 18:30:53.118798"], ["updated_at", "2021-07-29 18:30:53.118798"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.1ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Fermin"], ["last_name", "Borer"], ["city_id", 40], ["created_at", "2021-07-29 18:30:53.121380"], ["updated_at", "2021-07-29 18:30:53.121380"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.1ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Theo"], ["city_id", 40], ["created_at", "2021-07-29 18:30:53.123858"], ["updated_at", "2021-07-29 18:30:53.123858"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.1ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Bechtelarchester"], ["zip_code", "84686"], ["created_at", "2021-07-29 18:30:53.126705"], ["updated_at", "2021-07-29 18:30:53.126705"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Rocky"], ["last_name", "Stanton"], ["city_id", 41], ["created_at", "2021-07-29 18:30:53.129383"], ["updated_at", "2021-07-29 18:30:53.129383"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Marvis"], ["city_id", 41], ["created_at", "2021-07-29 18:30:53.133433"], ["updated_at", "2021-07-29 18:30:53.133433"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.1ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "East Edgardo"], ["zip_code", "68031"], ["created_at", "2021-07-29 18:30:53.136266"], ["updated_at", "2021-07-29 18:30:53.136266"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.1ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Vina"], ["last_name", "Hayes"], ["city_id", 42], ["created_at", "2021-07-29 18:30:53.139014"], ["updated_at", "2021-07-29 18:30:53.139014"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Hung"], ["city_id", 42], ["created_at", "2021-07-29 18:30:53.141853"], ["updated_at", "2021-07-29 18:30:53.141853"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mDogsitter Load (0.1ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:33
+  [1m[36mDogsitter Load (0.1ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:33
+  [1m[36mDogsitter Load (0.1ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" WHERE "dogsitters"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ db/seeds.rb:33
+  [1m[36mDoggy Load (0.1ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:35
+  [1m[36mDoggy Load (0.1ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:35
+  [1m[36mDoggy Load (0.1ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" WHERE "doggies"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ db/seeds.rb:35
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.6ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Chantayfort"], ["zip_code", "32780-7042"], ["created_at", "2021-07-29 18:33:14.239469"], ["updated_at", "2021-07-29 18:33:14.239469"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Suellen"], ["last_name", "Tremblay"], ["city_id", 43], ["created_at", "2021-07-29 18:33:14.260112"], ["updated_at", "2021-07-29 18:33:14.260112"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Delicia"], ["city_id", 43], ["created_at", "2021-07-29 18:33:14.268650"], ["updated_at", "2021-07-29 18:33:14.268650"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.1ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Joesphstad"], ["zip_code", "94299"], ["created_at", "2021-07-29 18:33:14.272306"], ["updated_at", "2021-07-29 18:33:14.272306"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Jan"], ["last_name", "Barton"], ["city_id", 44], ["created_at", "2021-07-29 18:33:14.275681"], ["updated_at", "2021-07-29 18:33:14.275681"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Rosann"], ["city_id", 44], ["created_at", "2021-07-29 18:33:14.278735"], ["updated_at", "2021-07-29 18:33:14.278735"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.1ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "West Lovella"], ["zip_code", "27318"], ["created_at", "2021-07-29 18:33:14.281800"], ["updated_at", "2021-07-29 18:33:14.281800"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Marge"], ["last_name", "Kihn"], ["city_id", 45], ["created_at", "2021-07-29 18:33:14.285597"], ["updated_at", "2021-07-29 18:33:14.285597"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Booker"], ["city_id", 45], ["created_at", "2021-07-29 18:33:14.288975"], ["updated_at", "2021-07-29 18:33:14.288975"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.2ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Cartwrightburgh"], ["zip_code", "72143-0885"], ["created_at", "2021-07-29 18:33:14.293231"], ["updated_at", "2021-07-29 18:33:14.293231"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (5.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Teena"], ["last_name", "Torp"], ["city_id", 46], ["created_at", "2021-07-29 18:33:14.300042"], ["updated_at", "2021-07-29 18:33:14.300042"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Susannah"], ["city_id", 46], ["created_at", "2021-07-29 18:33:14.304711"], ["updated_at", "2021-07-29 18:33:14.304711"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.2ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Padbergview"], ["zip_code", "59576-8662"], ["created_at", "2021-07-29 18:33:14.307688"], ["updated_at", "2021-07-29 18:33:14.307688"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Whitley"], ["last_name", "Satterfield"], ["city_id", 47], ["created_at", "2021-07-29 18:33:14.310179"], ["updated_at", "2021-07-29 18:33:14.310179"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.1ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Catherin"], ["city_id", 47], ["created_at", "2021-07-29 18:33:14.312722"], ["updated_at", "2021-07-29 18:33:14.312722"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.2ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "North Leonia"], ["zip_code", "31380"], ["created_at", "2021-07-29 18:33:14.315643"], ["updated_at", "2021-07-29 18:33:14.315643"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Berenice"], ["last_name", "O'Kon"], ["city_id", 48], ["created_at", "2021-07-29 18:33:14.319688"], ["updated_at", "2021-07-29 18:33:14.319688"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Russell"], ["city_id", 48], ["created_at", "2021-07-29 18:33:14.323203"], ["updated_at", "2021-07-29 18:33:14.323203"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.2ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Greenborough"], ["zip_code", "25172-7982"], ["created_at", "2021-07-29 18:33:14.326116"], ["updated_at", "2021-07-29 18:33:14.326116"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Yvone"], ["last_name", "Corkery"], ["city_id", 49], ["created_at", "2021-07-29 18:33:14.329235"], ["updated_at", "2021-07-29 18:33:14.329235"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Federico"], ["city_id", 49], ["created_at", "2021-07-29 18:33:14.332133"], ["updated_at", "2021-07-29 18:33:14.332133"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.2ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Lemkechester"], ["zip_code", "53155"], ["created_at", "2021-07-29 18:33:14.336909"], ["updated_at", "2021-07-29 18:33:14.336909"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Malika"], ["last_name", "Conroy"], ["city_id", 50], ["created_at", "2021-07-29 18:33:14.339955"], ["updated_at", "2021-07-29 18:33:14.339955"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.1ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Madeline"], ["city_id", 50], ["created_at", "2021-07-29 18:33:14.342301"], ["updated_at", "2021-07-29 18:33:14.342301"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.2ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Haihaven"], ["zip_code", "72773-9813"], ["created_at", "2021-07-29 18:33:14.345044"], ["updated_at", "2021-07-29 18:33:14.345044"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Nicolette"], ["last_name", "Zieme"], ["city_id", 51], ["created_at", "2021-07-29 18:33:14.348049"], ["updated_at", "2021-07-29 18:33:14.348049"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Ervin"], ["city_id", 51], ["created_at", "2021-07-29 18:33:14.351654"], ["updated_at", "2021-07-29 18:33:14.351654"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.1ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Zboncakville"], ["zip_code", "64814"], ["created_at", "2021-07-29 18:33:14.354861"], ["updated_at", "2021-07-29 18:33:14.354861"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.1ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Eleonor"], ["last_name", "Treutel"], ["city_id", 52], ["created_at", "2021-07-29 18:33:14.357223"], ["updated_at", "2021-07-29 18:33:14.357223"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.1ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Corina"], ["city_id", 52], ["created_at", "2021-07-29 18:33:14.359547"], ["updated_at", "2021-07-29 18:33:14.359547"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mDogsitter Load (0.0ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:33
+  [1m[36mDogsitter Load (0.1ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:33
+  [1m[36mDogsitter Load (0.1ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" WHERE "dogsitters"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ db/seeds.rb:33
+  [1m[36mDoggy Load (0.1ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:35
+  [1m[36mDoggy Load (0.1ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:35
+  [1m[36mDoggy Load (0.1ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" WHERE "doggies"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ db/seeds.rb:35
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:37
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:37
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.5ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "West Kirbychester"], ["zip_code", "05890"], ["created_at", "2021-07-29 18:34:21.362541"], ["updated_at", "2021-07-29 18:34:21.362541"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Von"], ["last_name", "Zieme"], ["city_id", 53], ["created_at", "2021-07-29 18:34:21.380055"], ["updated_at", "2021-07-29 18:34:21.380055"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Jaleesa"], ["city_id", 53], ["created_at", "2021-07-29 18:34:21.387725"], ["updated_at", "2021-07-29 18:34:21.387725"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mDogsitter Load (0.1ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:33
+  [1m[36mDogsitter Load (0.1ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:33
+  [1m[36mDogsitter Load (0.1ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" WHERE "dogsitters"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ db/seeds.rb:33
+  [1m[36mDoggy Load (0.1ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:35
+  [1m[36mDoggy Load (0.1ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:35
+  [1m[36mDoggy Load (0.1ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" WHERE "doggies"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ db/seeds.rb:35
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.6ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "West Alpha"], ["zip_code", "91592-1927"], ["created_at", "2021-07-29 18:35:37.898131"], ["updated_at", "2021-07-29 18:35:37.898131"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Nickie"], ["last_name", "Hyatt"], ["city_id", 54], ["created_at", "2021-07-29 18:35:37.913620"], ["updated_at", "2021-07-29 18:35:37.913620"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Reinaldo"], ["city_id", 54], ["created_at", "2021-07-29 18:35:37.920716"], ["updated_at", "2021-07-29 18:35:37.920716"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:29
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:29
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ db/seeds.rb:29
+  [1m[36mDogsitter Load (0.1ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mDogsitter Load (0.1ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mDogsitter Load (0.1ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" WHERE "dogsitters"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mDoggy Load (0.1ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:33
+  [1m[36mDoggy Load (0.1ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:33
+  [1m[36mDoggy Load (0.1ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" WHERE "doggies"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ db/seeds.rb:33
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.6ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Horacemouth"], ["zip_code", "46827-7340"], ["created_at", "2021-07-29 18:36:53.231186"], ["updated_at", "2021-07-29 18:36:53.231186"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Nedra"], ["last_name", "Thompson"], ["city_id", 55], ["created_at", "2021-07-29 18:36:53.246889"], ["updated_at", "2021-07-29 18:36:53.246889"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Cherryl"], ["city_id", 55], ["created_at", "2021-07-29 18:36:53.253764"], ["updated_at", "2021-07-29 18:36:53.253764"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:29
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:29
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ db/seeds.rb:29
+  [1m[36mDogsitter Load (0.1ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mDogsitter Load (0.0ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mDogsitter Load (0.1ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" WHERE "dogsitters"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mDoggy Load (0.1ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:33
+  [1m[36mDoggy Load (0.1ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:33
+  [1m[36mDoggy Load (0.1ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" WHERE "doggies"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ db/seeds.rb:33
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.7ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Rebecamouth"], ["zip_code", "95705-8694"], ["created_at", "2021-07-29 18:40:08.613009"], ["updated_at", "2021-07-29 18:40:08.613009"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.3ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Tyson"], ["last_name", "Simonis"], ["city_id", 56], ["created_at", "2021-07-29 18:40:08.629380"], ["updated_at", "2021-07-29 18:40:08.629380"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Laverna"], ["city_id", 56], ["created_at", "2021-07-29 18:40:08.636788"], ["updated_at", "2021-07-29 18:40:08.636788"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:29
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:29
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ db/seeds.rb:29
+  [1m[36mDogsitter Load (0.0ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mDogsitter Load (0.0ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mDogsitter Load (0.1ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" WHERE "dogsitters"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mDoggy Load (0.1ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:33
+  [1m[36mDoggy Load (0.1ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:33
+  [1m[36mDoggy Load (0.1ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" WHERE "doggies"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ db/seeds.rb:33
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.9ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Kellyeville"], ["zip_code", "40800"], ["created_at", "2021-07-29 19:34:32.531624"], ["updated_at", "2021-07-29 19:34:32.531624"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[36mDogsitter Create (0.2ms)[0m  [1m[32mINSERT INTO "dogsitters" ("first_name", "last_name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Victor"], ["last_name", "Bauch"], ["city_id", 57], ["created_at", "2021-07-29 19:34:32.551253"], ["updated_at", "2021-07-29 19:34:32.551253"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mDoggy Create (0.2ms)[0m  [1m[32mINSERT INTO "doggies" ("name", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Lilian"], ["city_id", 57], ["created_at", "2021-07-29 19:34:32.560332"], ["updated_at", "2021-07-29 19:34:32.560332"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:29
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:29
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 39], ["LIMIT", 1]]
+  ↳ db/seeds.rb:29
+  [1m[36mDogsitter Load (0.1ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mDogsitter Load (0.1ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" ORDER BY "dogsitters"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mDogsitter Load (0.1ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" WHERE "dogsitters"."id" = ? LIMIT ?[0m  [["id", 57], ["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mDoggy Load (0.1ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:33
+  [1m[36mDoggy Load (0.1ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" ORDER BY "doggies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:33
+  [1m[36mDoggy Load (0.1ms)[0m  [1m[34mSELECT  "doggies".* FROM "doggies" WHERE "doggies"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ db/seeds.rb:33
